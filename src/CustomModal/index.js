@@ -8,9 +8,9 @@ function CustomModal (props) {
             <Modal.Header closeButton>
                 <Modal.Title>Heading Text</Modal.Title>
             </Modal.Header>
-    
+
             <Modal.Body>{props.movieInfo.title}</Modal.Body>
-    
+
             <Modal.Footer>
                 <Button variant="secondary" onClick={props.closeModal}>Close</Button>
             </Modal.Footer>

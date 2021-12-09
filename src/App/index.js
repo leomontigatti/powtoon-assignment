@@ -4,38 +4,45 @@ import { useMovies } from './useMovies';
 import { MovieList } from '../MovieList';
 import { MovieListItem } from '../MovieListItem';
 import { CustomModal } from '../CustomModal';
+import { CustomSelect } from '../CustomSelect';
 
 function App() {
     
     const {
-        moviesList,
         moviePosterPath,
         handleClose,
         handleShow,
         showModal,
         selectedMovie,
+        handleChange,
+        sortingOption,
+        movieList,
     } = useMovies();
 
+    
+    
     return (
         <>
+            <CustomSelect
+                onChange={ handleChange }
+                sortBy={ sortingOption }
+            />
+
             <MovieList>
-                {moviesList.map(movie => 
+                {movieList.map(movie => 
                     <MovieListItem
-                        {...movie}
-                        key={movie.id}
-                        posterPath={moviePosterPath(movie.poster_path)}
-                        openModal={() => handleShow(movie)}
+                        key={ movie.id }
+                        posterPath={ moviePosterPath(movie.poster_path) }
+                        openModal={ () => handleShow(movie) }
                     />
                 )}
             </MovieList>
             
-            {showModal && (
-                <CustomModal
-                    closeModal={handleClose}
-                    show={showModal}
-                    movieInfo={selectedMovie}
-                />
-            )}
+            <CustomModal
+                show={ showModal }
+                closeModal={ handleClose }
+                movieInfo={ selectedMovie }
+            />
         </>
     );
 };

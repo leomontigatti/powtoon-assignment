@@ -1,3 +1,5 @@
+import './MovieListItem.css';
+
 function MovieListItem (props) {
 
     return (
@@ -5,6 +7,7 @@ function MovieListItem (props) {
             alt="" 
             onClick={props.openModal} 
             id={props.id} 
+            className="MoviePoster"
         />
     );
 };
