@@ -1,7 +1,8 @@
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 1rem;
+    column-gap: 10px;
+    row-gap: 15px;
 }
 
 .grid > div {
@@ -13,4 +14,5 @@
 body {
     margin: 2rem;
     font: 12px system-ui;
+    background: grey;
 }
